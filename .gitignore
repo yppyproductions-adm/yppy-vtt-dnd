@@ -1,0 +1,35 @@
+# Ignorar arquivos do WordPress (se por acaso você puxar WP para dentro da pasta)
+wp-admin/
+wp-includes/
+wp-content/uploads/
+wp-content/cache/
+wp-config.php
+index.php
+readme.html
+license.txt
+
+# Sistemas de build (caso use futuramente)
+node_modules/
+dist/
+build/
+
+# Sistemas de ambiente
+.env
+.env.local
+
+# Logs
+*.log
+
+# Backups e arquivos temporários
+*.zip
+*.tmp
+*.backup
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# Cache do VSCode e Cursor
+.vscode/
+.history/
+cursor/
