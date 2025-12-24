@@ -211,22 +211,43 @@
 
         function alignCalculatorScreen() {
             if (!calcWrapper || !calcImg || !calcScreen) return;
-            var w = calcWrapper.clientWidth;
-            var h = calcWrapper.clientHeight;
+
+            // Medir a imagem real dentro do wrapper
+            var imgRect = calcImg.getBoundingClientRect();
+            var wrapRect = calcWrapper.getBoundingClientRect();
+
+            // coordenadas relativas ao wrapper
+            var relLeft = imgRect.left - wrapRect.left;
+            var relTop = imgRect.top - wrapRect.top;
+            var imgW = imgRect.width;
+            var imgH = imgRect.height;
 
             // Ratios calibradas para o PNG (ajuste fino possível se necessário)
-            var topRatio = 0.09;    // distância do topo do wrapper até o visor
-            var leftRatio = 0.12;   // margem esquerda do visor
-            var widthRatio = 0.76;  // largura do visor em relação ao wrapper
-            var heightRatio = 0.14; // altura do visor em relação ao wrapper
+            var leftRatio = 0.12;   // margem esquerda do visor dentro da imagem
+            var topRatio = 0.12;    // distância do topo da imagem até o visor
+            var widthRatio = 0.76;  // largura do visor em relação à largura da imagem
+            var heightRatio = 0.18; // altura do visor em relação à altura da imagem
+
+            var screenLeft = Math.round(relLeft + imgW * leftRatio);
+            var screenTop = Math.round(relTop + imgH * topRatio);
+            var screenWidth = Math.round(imgW * widthRatio);
+            var screenHeight = Math.round(imgH * heightRatio);
 
             calcScreen.style.position = 'absolute';
-            calcScreen.style.top = Math.round(h * topRatio) + 'px';
-            calcScreen.style.left = Math.round(w * leftRatio) + 'px';
-            calcScreen.style.width = Math.round(w * widthRatio) + 'px';
-            calcScreen.style.height = Math.round(h * heightRatio) + 'px';
+            calcScreen.style.left = screenLeft + 'px';
+            calcScreen.style.top = screenTop + 'px';
+            calcScreen.style.width = screenWidth + 'px';
+            calcScreen.style.height = screenHeight + 'px';
             calcScreen.style.transform = '';
-            calcScreen.style.zIndex = 2;
+            calcScreen.style.zIndex = 5;
+            calcScreen.style.background = 'rgba(0,0,0,0.85)';
+            calcScreen.style.display = 'flex';
+            calcScreen.style.alignItems = 'center';
+            calcScreen.style.justifyContent = 'flex-end';
+            calcScreen.style.padding = '6px 10px';
+            calcScreen.style.boxSizing = 'border-box';
+            calcScreen.style.fontFamily = '"Courier New", monospace';
+            calcScreen.style.fontSize = Math.max(12, Math.round(screenHeight * 0.45)) + 'px';
         }
 
         if (calcImg) {
