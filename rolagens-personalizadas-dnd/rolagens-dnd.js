@@ -224,11 +224,11 @@
             var imgH = imgRect.height;
 
             // Ratios calibradas para o PNG (ajuste fino possível se necessário)
-            // Valores calibrados para a PNG (923x1280) — ajustados para cobrir corretamente o espaço do visor
-            var leftRatio = 0.085;   // margem esquerda do visor dentro da imagem (~80px / 923)
-            var topRatio = 0.07;     // distância do topo da imagem até o visor (~90px / 1280)
-            var widthRatio = 0.83;   // largura do visor em relação à largura da imagem (~765px / 923)
-            var heightRatio = 0.16;  // altura do visor em relação à altura da imagem (~205px / 1280)
+            // Ajuste iterativo: mover visor mais para a direita e reduzir largura/altura
+            var leftRatio = 0.165;   // margem esquerda do visor dentro da imagem (aumentado para deslocar à direita)
+            var topRatio = 0.09;     // distância do topo da imagem até o visor (pequeno ajuste)
+            var widthRatio = 0.70;   // largura do visor em relação à largura da imagem (reduzida para caber)
+            var heightRatio = 0.14;  // altura do visor em relação à altura da imagem (reduzida)
 
             var screenLeft = Math.round(relLeft + imgW * leftRatio);
             var screenTop = Math.round(relTop + imgH * topRatio);
