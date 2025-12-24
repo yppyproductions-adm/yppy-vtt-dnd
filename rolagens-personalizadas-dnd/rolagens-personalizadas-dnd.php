@@ -312,19 +312,19 @@ class Rolagens_Personalizadas_DnD {
 }
 .rolagens-dnd-calculator-screen {
     position: absolute;
-    top: 12%;
-    left: 14%;
-    right: 14%;
-    height: 13%;
+    top: 9%; /* ajustado para alinhar verticalmente */
+    left: 12%; /* margem lateral ajustada */
+    right: 12%;
+    height: 16%; /* aumento para cobrir a área correta */
     background: rgba(0, 0, 0, 0.75);
     color: #0f0;
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    padding: 4px 8px;
+    padding: 6px 10px; /* ligeiro ajuste para posicionamento do texto */
     box-sizing: border-box;
     font-family: "Courier New", monospace;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
 }
 /* --- AJUSTES VISUAIS DA ÁREA DE RESULTADOS --- */
 
