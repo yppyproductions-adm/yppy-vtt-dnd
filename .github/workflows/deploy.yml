@@ -1,0 +1,24 @@
+name: Deploy Plugins to Hostinger
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy plugins via SCP
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: srv718-files.hstgr.io
+          username: u982109757
+          password: SPidere10@@
+          port: 65002
+          source: "plugins/"
+          target: "/home/u982109757/domains/lightgreen-wren-814745.hostingersite.com/public_html/wp-content/plugins/"
