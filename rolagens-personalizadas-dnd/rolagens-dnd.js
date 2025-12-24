@@ -225,11 +225,11 @@
 
             // Ratios calibradas para o PNG (ajuste fino possível se necessário)
             // Ajuste iterativo: mover visor mais para a direita e reduzir largura/altura
-            // Nova tentativa: mover mais para a direita, centralizar melhor e diminuir tamanho
-            var leftRatio = 0.28;   // deslocar mais para a direita
-            var topRatio = 0.10;    // pequena correção vertical
-            var widthRatio = 0.58;  // reduzir largura para caber na área escura do visor
-            var heightRatio = 0.12; // reduzir altura para ajustar ao retângulo interno
+            // Ajuste: mover mais para a direita e aumentar levemente o tamanho
+            var leftRatio = 0.36;   // deslocar mais para a direita
+            var topRatio = 0.095;   // pequena correção vertical
+            var widthRatio = 0.74;  // aumentar largura para cobrir o espaço do visor
+            var heightRatio = 0.16; // aumentar altura para melhor proporção
 
             var screenLeft = Math.round(relLeft + imgW * leftRatio);
             var screenTop = Math.round(relTop + imgH * topRatio);
