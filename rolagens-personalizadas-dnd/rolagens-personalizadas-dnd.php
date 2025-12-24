@@ -19,11 +19,13 @@ class Rolagens_Personalizadas_DnD {
     }
 
     public function enqueue_assets() {
+        $js_path = plugin_dir_path( __FILE__ ) . 'rolagens-dnd.js';
+        $ver = file_exists( $js_path ) ? filemtime( $js_path ) : '0.2.0';
         wp_register_script(
             'rolagens-dnd-js',
             plugin_dir_url( __FILE__ ) . 'rolagens-dnd.js',
             array(),
-            '0.2.0',
+            $ver,
             true
         );
     }

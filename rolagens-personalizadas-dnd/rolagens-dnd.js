@@ -1,4 +1,5 @@
 (function () {
+    console.log('rolagens-dnd.js loaded — aligning calculator screen');
     // ---------- Utilidades de dados ----------
 
     function rollDie(faces) {
@@ -223,10 +224,11 @@
             var imgH = imgRect.height;
 
             // Ratios calibradas para o PNG (ajuste fino possível se necessário)
-            var leftRatio = 0.12;   // margem esquerda do visor dentro da imagem
-            var topRatio = 0.12;    // distância do topo da imagem até o visor
-            var widthRatio = 0.76;  // largura do visor em relação à largura da imagem
-            var heightRatio = 0.18; // altura do visor em relação à altura da imagem
+            // Valores calibrados para a PNG (923x1280) — ajustados para cobrir corretamente o espaço do visor
+            var leftRatio = 0.085;   // margem esquerda do visor dentro da imagem (~80px / 923)
+            var topRatio = 0.07;     // distância do topo da imagem até o visor (~90px / 1280)
+            var widthRatio = 0.83;   // largura do visor em relação à largura da imagem (~765px / 923)
+            var heightRatio = 0.16;  // altura do visor em relação à altura da imagem (~205px / 1280)
 
             var screenLeft = Math.round(relLeft + imgW * leftRatio);
             var screenTop = Math.round(relTop + imgH * topRatio);
