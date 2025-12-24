@@ -301,9 +301,9 @@ class Rolagens_Personalizadas_DnD {
 }
 .rolagens-dnd-calculator-wrapper {
     position: relative;
-    display: inline-block;
-    max-width: 280px;
-    width: 100%;
+    display: block;
+    width: 280px; /* largura fixa igual à arte da calculadora */
+    margin: 0 auto; /* centraliza */
 }
 .rolagens-dnd-calculator-img {
     width: 100%;
