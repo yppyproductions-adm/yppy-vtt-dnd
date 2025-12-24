@@ -193,6 +193,18 @@ class Rolagens_Personalizadas_DnD {
             <div class="rolagens-dnd-calculator-screen">0</div>
         </div>
     </div>
+
+<?php
+        $js_path = plugin_dir_path( __FILE__ ) . 'rolagens-dnd.js';
+        $ver = file_exists( $js_path ) ? filemtime( $js_path ) : '0.2.0';
+?>
+<script>
+    (function(){
+        try {
+            console.log('rolagens-dnd-inline page version: ' + '<?php echo esc_js( $ver ); ?>');
+        } catch(e) {}
+    })();
+</script>
 </div>
 
 <style>
