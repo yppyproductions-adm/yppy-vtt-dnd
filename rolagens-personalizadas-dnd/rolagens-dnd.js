@@ -204,6 +204,39 @@
         var runRollsBtn = widget.querySelector('.run-rolls');
         var resultsContainer = widget.querySelector('.rolagens-dnd-results');
 
+        // --- Ajuste dinâmico do visor da calculadora ---
+        var calcWrapper = widget.querySelector('.rolagens-dnd-calculator-wrapper');
+        var calcImg = widget.querySelector('.rolagens-dnd-calculator-img');
+        var calcScreen = widget.querySelector('.rolagens-dnd-calculator-screen');
+
+        function alignCalculatorScreen() {
+            if (!calcWrapper || !calcImg || !calcScreen) return;
+            var w = calcWrapper.clientWidth;
+            var h = calcWrapper.clientHeight;
+
+            // Ratios calibradas para o PNG (ajuste fino possível se necessário)
+            var topRatio = 0.09;    // distância do topo do wrapper até o visor
+            var leftRatio = 0.12;   // margem esquerda do visor
+            var widthRatio = 0.76;  // largura do visor em relação ao wrapper
+            var heightRatio = 0.14; // altura do visor em relação ao wrapper
+
+            calcScreen.style.position = 'absolute';
+            calcScreen.style.top = Math.round(h * topRatio) + 'px';
+            calcScreen.style.left = Math.round(w * leftRatio) + 'px';
+            calcScreen.style.width = Math.round(w * widthRatio) + 'px';
+            calcScreen.style.height = Math.round(h * heightRatio) + 'px';
+            calcScreen.style.transform = '';
+            calcScreen.style.zIndex = 2;
+        }
+
+        if (calcImg) {
+            // garantir alinhamento quando a imagem carregar e ao redimensionar
+            calcImg.addEventListener('load', alignCalculatorScreen);
+            window.addEventListener('resize', alignCalculatorScreen);
+            // chamada inicial (pode ser necessária se a imagem já estiver carregada)
+            setTimeout(alignCalculatorScreen, 50);
+        }
+
         // Atualiza lista de inimigos e options dos selects
         function updateEnemyOptions() {
             var enemyRows = enemiesTableBody ? enemiesTableBody.querySelectorAll('tr') : [];
