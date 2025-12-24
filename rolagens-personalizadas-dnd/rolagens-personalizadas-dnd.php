@@ -241,7 +241,14 @@ class Rolagens_Personalizadas_DnD {
 .add-enemy,
 .add-group,
 .add-player {
-    background: #ddd;
+    background: #007bff; /* Azul padrão */
+    color: #fff;
+    transition: background 180ms ease;
+}
+.add-enemy:hover,
+.add-group:hover,
+.add-player:hover {
+    background: #c084fc; /* Lilás no hover */
 }
 .remove-enemy,
 .remove-group,
