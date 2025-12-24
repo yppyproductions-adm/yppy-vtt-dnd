@@ -248,9 +248,13 @@ class Rolagens_Personalizadas_DnD {
     font-size: 0.9rem;
 }
 .run-rolls {
-    background: #222;
+    background: #007bff; /* Azul padrão igual aos botões de adicionar */
     color: #fff;
     font-weight: 600;
+    transition: background 180ms ease;
+}
+.run-rolls:hover {
+    background: #c084fc; /* Lilás no hover */
 }
 .add-enemy,
 .add-group,
